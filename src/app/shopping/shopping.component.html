@@ -1,0 +1,23 @@
+
+
+
+<div class="row row-cols-1  row row-cols-md-3 " >
+    <div class="col-mb-4" *ngFor="let card of cards">
+
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{card.title}}</mat-card-title>
+                <mat-card-subtitle>{{card.subtitles}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{card.image}}">
+            
+            <mat-card-content>
+              <b> cost </b>: {{card.cost}} <br>
+               <b> product Detail </b>: {{card.description}}
+            
+            </mat-card-content>
+    
+        </mat-card>
+    </div>
+</div>

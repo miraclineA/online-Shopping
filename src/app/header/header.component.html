@@ -1,0 +1,139 @@
+<!-- <div >
+
+<h1>   <img
+        src="https://media-exp1.licdn.com/dms/image/C510BAQHJRGz9A4vq6A/company-logo_200_200/0/1519912579389?e=2147483647&v=beta&t=y7dOj2Zz8ccdcZFiUGF19RHQG3dnvhH_56IY9dtSano"
+        alt="" width="50px"> 
+    Muraai Informaion Technology 
+    <button mat-button [matMenuTriggerFor]="menu" class="circle">{{fName}}{{lName}}</button>
+
+    <mat-menu #menu="matMenu" class="">
+        <mat-card>
+        <mat-card-header>
+             <mat-divider> </mat-divider>
+            <mat-card-title>{{a}}</mat-card-title>
+        </mat-card-header>
+         <mat-divider> </mat-divider> 
+        <mat-card-content>
+            <p> {{email}} </p>
+        </mat-card-content>
+    </mat-card>
+
+
+       
+    </mat-menu>
+
+</div>        -->
+    
+    
+   
+    <!-- <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+    
+         
+          <button (click)="dashboard()">
+            order
+            
+          </button> <br> <br>
+    
+          <button (click)="shopping()"> 
+            go to shopping
+          </button> <br> <br>
+    
+          <button (click)="wishlist()"> 
+            Wishlist
+          </button> <br> <br>
+    
+          <button (click)="logout()">
+            Logout
+            
+          </button>  -->
+              <!-- <div class="example-sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+        
+      
+      </button>
+    </div> -->
+         
+        <!-- </mat-drawer>
+        <div class="example-sidenav-content">
+            <button type="button" mat-button (click)="drawer.toggle()">
+              <mat-icon>menu</mat-icon>
+              
+            
+            </button>
+          </div>
+    </mat-drawer-container > -->
+
+
+<div>
+
+    <mat-icon (click)="snav.toggle()" class="hlo">menu</mat-icon>
+       <!-- <img
+    src="https://media-exp1.licdn.com/dms/image/C510BAQHJRGz9A4vq6A/company-logo_200_200/0/1519912579389?e=2147483647&v=beta&t=y7dOj2Zz8ccdcZFiUGF19RHQG3dnvhH_56IY9dtSano"
+    alt="" width="50px">  -->
+                <h1 appHiglightdirective>    Muraai Informaion Technology </h1>
+
+
+<mat-form-field class="example-full-width">
+  <input matInput type="search" placeholder="search" #search>
+</mat-form-field>
+<button class="searchclick" (click)="searchBar(search.value)">  search  </button>
+
+
+
+
+ <button appHiglightdirective (click)="addonlineShopping()" class="addbutton" > ADD </button> 
+
+
+
+
+
+<button mat-button [matMenuTriggerFor]="menu" class="circle">{{fName}}{{lName}}</button>
+
+<mat-menu #menu="matMenu">
+    <mat-card>
+    <mat-card-header>
+        <!-- <mat-divider> </mat-divider> -->
+        <mat-card-title>{{a}}</mat-card-title>
+    </mat-card-header>
+    <!-- <mat-divider> </mat-divider> -->
+    <mat-card-content>
+        <p> {{email}} </p>
+    </mat-card-content>
+</mat-card>
+
+
+
+
+   
+</mat-menu>
+
+    
+
+    <mat-sidenav-container class="example-sidenav-container">
+<mat-sidenav #snav mode="side">
+<mat-nav-list >
+
+<a mat-list-item   routerLink="/dashboard" (click)="snav.toggle()" >Order</a>
+<a mat-list-item  routerLink="/goshopping" (click)="snav.toggle()" >Go To Shopping</a>
+<a mat-list-item  routerLink="/wishlist" (click)="snav.toggle()" >Wishlist</a>
+<a mat-list-item  routerLink="/" (click)="logout()" >Logout</a>
+</mat-nav-list>
+</mat-sidenav>
+
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+        
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+
+
+</div>  
+
+
+ 
+   

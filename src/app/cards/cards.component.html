@@ -1,0 +1,17 @@
+
+
+<div class="hss">
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Apple</mat-card-title>
+        <mat-card-subtitle>Item Name</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://www.wallpaperflare.com/static/947/293/305/pple-leaves-tail-slice-wallpaper.jpg"
+        alt="Photo of apple">
+</mat-card>
+<app-details [merging]="merging" (updateDetails)="edit(merging)"  (deletefn)="delete(merging.id)"></app-details>
+
+<!-- <h4 class="hey">Details: <br> Name: {{merging.name}} <br> Cost:{{merging.cost}} <br> Shipping Address: {{merging.shippingAddress}} <br> Expected Delivery Date: {{merging.expectedDate}} </h4> -->
+</div>
+

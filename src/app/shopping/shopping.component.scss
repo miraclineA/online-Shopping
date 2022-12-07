@@ -1,0 +1,21 @@
+
+.example-card {
+    max-width: 500px;
+    padding: 40px
+  }
+  
+  .example-header-image {
+    background-image: url('https://th.bing.com/th/id/OIP.SoljqLeCMWJSGaRHs-ID5QHaFj?pid=ImgDet&rs=1');
+    background-size: cover;
+  }
+  .row{
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  img{
+    height: 350px;
+    width: 350px;
+   ;
+  }

@@ -1,0 +1,7 @@
+{
+    "/*":{
+        "target":"http://reqres.in/api/login",
+        "secure":false,
+        "logLevel": "debug"
+    }
+}

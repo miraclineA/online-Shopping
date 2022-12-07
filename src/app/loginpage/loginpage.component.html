@@ -1,0 +1,25 @@
+
+
+  
+
+  
+  
+<div class="all">
+    <h1>Login Page</h1> 
+    <form  [formGroup]="formdata"(ngSubmit)="submit(formdata.value)">
+   <div class="loginform">
+        <label for="email" >User Name</label> <br>
+        <input type="text" formControlName="email">
+  </div> <br>
+
+<div class="loginform">
+        <label for="password" >Password</label> <br>
+        <input type="password" formControlName="password">
+    </div> <br>
+
+    <div>
+
+        <button type="submit" mat-strocked-button (click)="submit" >Log in</button>
+    </div>
+    </form>
+</div>

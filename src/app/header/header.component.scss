@@ -1,0 +1,67 @@
+div{
+    background:pink;
+    margin-bottom: 30px;   
+}
+h1{
+    text-align: center;
+    
+    
+}
+.hlo{
+    // margin-right: 40px;
+    width: 100px;;
+
+    
+}
+.addbutton{
+    // margin-left: 900px;
+    background-color: aliceblue;
+    
+    float: right;
+    cursor: pointer;
+   
+}
+.circle{
+    height: 50px;
+    width: 50px;
+    border: solid;
+    border-radius: 50%;
+    float: right;
+    margin-right: 150px;
+    cursor: pointer;
+    
+    // margin-bottom: 100px;
+    //  margin-left: 700px;
+    
+    
+    // font-size: large;
+
+}
+.circle:hover{
+    background-image: linear-gradient(pink,violet,rgb(219,105,170))
+    
+}
+.example-full-width{
+    margin-left: 500px;
+}
+.searchclick{
+    margin-left: 10px;
+}
+
+
+// .example-container {
+//     height:fit-content;
+//     justify-content: stretch;
+    
+//   }
+  
+//   .example-sidenav-content {
+    
+
+//     height: fit-content;
+    
+//   }
+  
+//   .example-sidenav {
+//     padding: 20px;
+//   }

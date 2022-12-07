@@ -1,0 +1,61 @@
+<div class="container">
+    <h1>Online Shopping </h1>
+
+<form [formGroup]="formdata"(ngSubmit)="submit(formdata.value)"class="fomsize">
+    <div class="form-group">
+        <mat-form-field appearance="fill">
+    <mat-label for="no">S.no</mat-label><br>
+    <input matInput  type="text" name="no" class="formcontrol" formControlName="no">
+        </mat-form-field> 
+
+    </div>
+
+    <div class="form-group">
+        <mat-form-field appearance="fill">
+    <mat-label for="name">Item Name</mat-label><br>
+    <input matInput type="text" name="name" class="formcontrol"formControlName="name">
+    </mat-form-field>
+    </div>
+    <div *ngIf="formdata.controls['name'].invalid ">
+        <div *ngIf="formdata.controls['name'].errors.required" >
+            Item Name is required
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+        <mat-form-field appearance="fill">
+        <mat-label for="no">cost</mat-label> <br>
+        <input matInput type="text" name="cost" class="formcontrol" formControlName="cost">
+        </mat-form-field> 
+    
+        </div>
+
+
+        <div class="form-group">
+            <mat-form-field appearance="fill">
+            <label for="shippingAddress">shipping Address</label> <br>
+            <input matInput type="text" name="shippingAddress" class="formcontrol" formControlName="shippingAddress">
+            </mat-form-field> 
+        
+            </div>
+        
+
+            <div class="form-group">
+                <mat-form-field appearance="fill">
+                <mat-label for="expectedDate">Expected Delivery Date</mat-label> <br>
+                <input matInput type="text" name="expectedDate" class="formcontrol" formControlName="expectedDate"> 
+                </mat-form-field>
+            
+                </div>
+        
+                <div>
+                    <button class="btn" type="submit" mat-stroked-button (click)="snackbar()" *ngIf="!data?.editButton">Submit</button> 
+                    <button class="but-ton" *ngIf="data?.editButton"  (click)="editButton(formdata.value)" mat-stroked-button (click)="snackbar1()">Update</button>
+
+                </div>
+
+</form>
+</div>
