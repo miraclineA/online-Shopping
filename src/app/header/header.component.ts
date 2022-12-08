@@ -6,6 +6,7 @@ import { ReactiveformComponent } from '../reactiveform/reactiveform.component';
 import { ServiceExampleService } from '../service-example.service';
 import { StepperComponent } from '../stepper/stepper.component';
 import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-header',

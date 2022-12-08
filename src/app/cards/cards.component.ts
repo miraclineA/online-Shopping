@@ -24,8 +24,8 @@ export class CardsComponent implements OnInit{
     
     
      
-      this.serv.getDetails( this.route.snapshot.params['id']).subscribe(a=>{
-      this.merging = a
+      this.serv.getDetails( this.route.snapshot.params['id']).subscribe(detail=>{
+      this.merging = detail
     })
 
 
