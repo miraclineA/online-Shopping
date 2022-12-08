@@ -24,7 +24,7 @@ export class CardsComponent implements OnInit{
     
     
      
-      this.serv.getDetails( this.route.snapshot.params['id']).subscribe(a=>{console.log('--Details--',a)
+      this.serv.getDetails( this.route.snapshot.params['id']).subscribe(a=>{
       this.merging = a
     })
 
@@ -40,13 +40,11 @@ export class CardsComponent implements OnInit{
   }
   edit(merging:any){
     const dialogRef = this.dialog.open(ReactiveformComponent,{data:{...merging,editButton:true}})
-    dialogRef.afterClosed().subscribe((x:any) => {console.log('--output--',`${x}`)})
+    dialogRef.afterClosed().subscribe((editItem:any) => {`${editItem}`})
   }
 
   delete(id: any) {
-    this.serv.deletecreateOrder(id).subscribe(x => {
-      console.log('-------', x)
-    })
+    this.serv.deletecreateOrder(id).subscribe()
   }
 
 } 

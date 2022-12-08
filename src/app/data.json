@@ -6,7 +6,8 @@
       "cost": "500",
       "shippingAddress": "hsr",
       "expectedDate": "2022-11-26",
-      "id": 1
+      "id": 1,
+      "selected": false
     },
     {
       "no": 2,
@@ -68,6 +69,15 @@
       "shippingAddress": "busan",
       "expectedDate": "2022-12-05",
       "id": "7",
+      "selected": true
+    },
+    {
+      "no": "11",
+      "name": "watch",
+      "cost": "999",
+      "shippingAddress": "albania",
+      "expectedDate": "2022-12-25",
+      "id": "11",
       "selected": false
     }
   ],

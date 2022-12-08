@@ -15,28 +15,17 @@ export class WishlistComponent implements OnInit{
 
   constructor(private serv:ServiceExampleService, private router:Router){}
   ngOnInit() {
+    this.serv.getcreateOrder()
     this.dataSource = this.serv.dataEvent$
-    .pipe(map((n:any)=>{
-      console.log('----',n)
-      return(n.filter((a:any)=>a.selected))
+    .pipe(map((mapping:any)=>{
+      
+      return(mapping.filter((filtering:any)=>filtering.selected))
   }))
   
     // this.serv.orderDetails().pipe()
     
   }
-  logout(){
-    this.router.navigate(['']);
-    localStorage.clear();
-  }
-  dashboard(){
-    this.router.navigate(['/dashboard'])
-  }
-  shopping(){
-    this.router.navigate(['/goshopping'])
-  }
-  wishlist(){
-    this.router.navigate(['/wishlist'])
-  }
+
  
 }
 

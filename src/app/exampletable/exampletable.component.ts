@@ -20,26 +20,10 @@ export class ExampletableComponent implements OnInit{
   dataSource: Observable<any> = of([{}]);
   
   displayedColumns: string[] = ['no', 'name', 'cost', 'shippingAddress', 'expectedDate', 'star','fav'];
-  // @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
-  // @ViewChild(MatTable,{static:true}) table: MatTable<any>;
   constructor(private serv: ServiceExampleService,
     private router: Router, private dialog: MatDialog) { }
-  // ngOnInit(): void {
-  //   throw new Error('Method not implemented.');
-  // }
-  // ngAfterViewInit(): void {
-  //   this.dataSource.paginator = this.paginator;
-
-  // }
-  // applyFilter(event: Event) {
-  //   const filterValue = (event.target as HTMLInputElement).value;
-  //   this.dataSource.filter = filterValue.trim().toLowerCase();
-
-  //   if (this.dataSource.paginator) {
-  //     this.dataSource.paginator.firstPage();
-  //   }
-  // }
+  
 
 
   ngOnInit() {
@@ -53,7 +37,7 @@ export class ExampletableComponent implements OnInit{
     // const dialogRef =this.dialog.open(ExampletableComponent);
 
     dialogRef.afterClosed().subscribe((data: any) => {
-      console.log(`Dialog result:${data}`);
+            `Dialog result:${data}`;
 
 
     })
@@ -62,30 +46,12 @@ export class ExampletableComponent implements OnInit{
   }
 
   deleteRow(id: any) {
-    this.serv.deletecreateOrder(id).subscribe(x => {
-      console.log('-------', x)
-
-    })
+    this.serv.deletecreateOrder(id).subscribe()
   }
-  // func(id: any) {
-  //   this.router.navigate(['/fun', id]);
-  // }
-// logout(){
-//   this.router.navigate(['']);
-//   localStorage.clear();
-// }
-// dashboard(){
-//   this.router.navigate(['/dashboard'])
-// }
-// shopping(){
-//   this.router.navigate(['/goshopping'])
-// }
-// wishlist(){
-//   this.router.navigate(['/wishlist'])
-// }
+
 star(data:any){
-  this.serv.updateFav(data).subscribe(x => {
-    console.log('-------', x)
+  this.serv.updateFav(data).subscribe(favouriteButton => {
+    // console.log('-------', favouriteButton) 
     window.location.reload()
   })
 
@@ -102,11 +68,4 @@ export interface onlineShopping {
 
 
 
-// const ELEMENT_DATA: onlineShopping[] = [
-//   {id:1,name:' juice', cost: 100, shippingAddress: 'sfdg', expectedDate: '2nd,dec'},
-//   {id:2,name:'straw' , cost: 22, shippingAddress: 'dfdg', expectedDate: '25,nov'},
-//   {id:3,name: 'pen', cost: 499, shippingAddress: 'dcged', expectedDate: '12,dec'},
-//   {id:4,name: 'pencil', cost: 455, shippingAddress: 'ddee', expectedDate: '01,jan'},
-//   {id:5,name:  'brush',cost: 567, shippingAddress: 'dedd', expectedDate: '23,nov'},
-// ];
 

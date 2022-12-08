@@ -18,15 +18,15 @@ export class HeaderComponent implements OnInit {
   // dataSource:Observable<any>= of([{}]); 
 
   constructor(private dialog:MatDialog, private serv:ServiceExampleService,private router:Router ){}
-a:any
+idName:any
 fName:any
 lName:any
 email:any
   ngOnInit():void{
     this.email=localStorage.getItem('email')
-    this.a=this.email.split('.').join(' ').split('@',1).join(' ')
-    this.fName=((this.a.split(' ',1))[0])[0]
-    this.lName=((this.a.split(' ',2))[1])[0]
+    this.idName=this.email.split('.').join(' ').split('@',1).join(' ')
+    this.fName=((this.idName.split(' ',1))[0])[0]
+    this.lName=((this.idName.split(' ',2))[1])[0]
  
  }
  addonlineShopping(){
@@ -34,7 +34,7 @@ email:any
 
 
   dialogRef.afterClosed().subscribe(result =>{
-    console.log(`Dialog result:${result}`);
+       `Dialog result:${result}`;
     
   })
 
@@ -45,7 +45,7 @@ email:any
   // window.location.reload()
 }
 searchBar(val:any){
-  console.log('----',val)
+  
   this.serv.searchItem(val)
 }
 
