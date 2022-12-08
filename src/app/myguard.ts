@@ -7,9 +7,9 @@ import { Observable } from "rxjs";
 
 export class Myguard implements CanActivate{
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-       let f= localStorage.getItem('login') ?? ''
-       console.log(f)
-      return JSON.parse(f)
+       let nonNavigation= localStorage.getItem('login') ?? ''
+       
+      return JSON.parse(nonNavigation)
     }
 }
    

@@ -16,10 +16,16 @@ h1{
 .addbutton{
     // margin-left: 900px;
     background-color: aliceblue;
+    margin-right: 250px;
+    
+    
     
     float: right;
     cursor: pointer;
    
+}
+.addbutto:hover{
+    background-color: alpha($color: violet);
 }
 .circle{
     height: 50px;
@@ -27,7 +33,7 @@ h1{
     border: solid;
     border-radius: 50%;
     float: right;
-    margin-right: 150px;
+    margin-right: 80px;
     cursor: pointer;
     
     // margin-bottom: 100px;
@@ -38,7 +44,7 @@ h1{
 
 }
 .circle:hover{
-    background-image: linear-gradient(pink,violet,rgb(219,105,170))
+    background-image: linear-gradient(rgb(227, 157, 214),violet,rgb(219,105,170))
     
 }
 .example-full-width{

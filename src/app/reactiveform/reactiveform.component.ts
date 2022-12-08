@@ -26,15 +26,15 @@ export class ReactiveformComponent implements OnInit {
 
   submit(data:any){
 
-    console.log('---submit---',data)
+    
     
     this.serv.createOrder({...data,id:data['no']}).subscribe(s=>{
       
       window.location.reload();
-      console.log('--submit--',s)
+      
     })
     this.dialog.closeAll();
-    console.log('---',data);
+    
     
   }
 
@@ -42,7 +42,7 @@ export class ReactiveformComponent implements OnInit {
     this.serv.editcreateOrder(elements).subscribe(ele=>{
       
       window.location.reload();
-      console.log('--submit--',ele)
+      
     })
 
     }

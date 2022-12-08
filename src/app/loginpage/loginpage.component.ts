@@ -41,9 +41,9 @@ export class LoginpageComponent implements OnInit{
   //   this.router.navigate(['/wishlist'])
   // }
   submit(data:any){
-    console.log('--d--',data)
-    this.serv.logIn(data).subscribe(d=>{
-      console.log('--d--',d)
+   
+    this.serv.logIn(data).subscribe(submitData=>{
+      
       localStorage.setItem('login','true')
       localStorage.setItem('email',data.email)
       

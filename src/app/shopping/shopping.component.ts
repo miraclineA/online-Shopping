@@ -18,7 +18,7 @@ export class ShoppingComponent implements OnInit{
   
   ngOnInit(): void {
     this.serv.orderDetails().subscribe(detail=>{
-      console.log(detail)
+      
       this.cards=detail
 
       // this.cards=[
@@ -80,19 +80,19 @@ export class ShoppingComponent implements OnInit{
       // ]
     })
   }
-  logout(){
-    this.router.navigate(['']);
-    localStorage.clear();
-  }
-  dashboard(){
-    this.router.navigate(['/dashboard'])
-  }
-  shopping(){
-    this.router.navigate(['/goshopping'])
-  }
-  wishlist(){
-    this.router.navigate(['/wishlist'])
-  }
+  // logout(){
+  //   this.router.navigate(['']);
+  //   localStorage.clear();
+  // }
+  // dashboard(){
+  //   this.router.navigate(['/dashboard'])
+  // }
+  // shopping(){
+  //   this.router.navigate(['/goshopping'])
+  // }
+  // wishlist(){
+  //   this.router.navigate(['/wishlist'])
+  // }
 
 
   // cards = [
