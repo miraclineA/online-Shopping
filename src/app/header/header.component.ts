@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject, takeUntil } from 'rxjs';
 import { ReactiveformComponent } from '../reactiveform/reactiveform.component';
 import { ServiceExampleService } from '../service-example.service';
 import { StepperComponent } from '../stepper/stepper.component';
@@ -13,16 +13,18 @@ import {MatExpansionModule} from '@angular/material/expansion';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
  
 
-  // dataSource:Observable<any>= of([{}]); 
+  
 
   constructor(private dialog:MatDialog, private serv:ServiceExampleService,private router:Router ){}
+
 idName:any
 fName:any
 lName:any
 email:any
+destroyvalue$ = new Subject <boolean>
   ngOnInit():void{
     this.email=localStorage.getItem('email')
     this.idName=this.email.split('.').join(' ').split('@',1).join(' ')
@@ -34,7 +36,7 @@ email:any
   const dialogRef =this.dialog.open(StepperComponent);
 
 
-  dialogRef.afterClosed().subscribe(result =>{
+  dialogRef.afterClosed().pipe(takeUntil(this.destroyvalue$)).subscribe(result =>{
        `Dialog result:${result}`;
     
   })
@@ -43,30 +45,18 @@ email:any
  logout(){
   this.router.navigate(['']);
   localStorage.clear();
-  // window.location.reload()
+   
 }
 searchBar(val:any){
   
   this.serv.searchItem(val)
 }
 
-
-  // editRow(){
-  //   this.serv.createOrder({
-  //   id:9,
-  //     no:8,
-  //     name:"orange",
-  //      cost: 80,
-  //       shippingAddress: "hjkk",
-  //        expectedDate: "xyz",
-    
-        
-
-  //   }
-
-  //   ).subscribe((data:any) =>{console.log('--data---',data)})
-  // }
-
+ngOnDestroy(): void {
+  this.destroyvalue$.next (true)
+  this.destroyvalue$.complete()
+}
+ 
   
 
 }

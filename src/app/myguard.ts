@@ -10,7 +10,7 @@ export class Myguard implements CanActivate{
        let nonNavigation= localStorage.getItem('login') ?? ''
        
       return JSON.parse(nonNavigation)
-    }
+    } 
 }
    
 

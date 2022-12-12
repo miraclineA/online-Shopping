@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject, takeUntil } from 'rxjs';
 import { ServiceExampleService } from '../service-example.service';
 import {MatListModule} from '@angular/material/list';
 
@@ -11,12 +11,14 @@ import {MatListModule} from '@angular/material/list';
   templateUrl: './loginpage.component.html',
   styleUrls: ['./loginpage.component.scss']
 })
-export class LoginpageComponent implements OnInit{
+export class LoginpageComponent implements OnInit, OnDestroy {
   constructor(private router:Router, private serv:ServiceExampleService){}
+ 
   [x: string]: any;
   formGroup: Observable<any> = of([{}]);
   formdata:any
   data:any
+  destroyvalue$ = new Subject <boolean>
   ngOnInit(): void {
     this.formdata = new FormGroup({
       email: new FormControl(this.data?.email?? '' ),
@@ -24,25 +26,10 @@ export class LoginpageComponent implements OnInit{
     })
     
   }
-  // home(){
-  //   this.router.navigate(['/dashboard'])
-  // }
-  // logout(){
-  //   this.router.navigate(['']);
-  //   localStorage.clear();
-  // }
-  // dashboard(){
-  //   this.router.navigate(['/dashboard'])
-  // }
-  // shopping(){
-  //   this.router.navigate(['/goshopping'])
-  // }
-  // wishlist(){
-  //   this.router.navigate(['/wishlist'])
-  // }
+
   submit(data:any){
    
-    this.serv.logIn(data).subscribe(submitData=>{
+    this.serv.logIn(data).pipe(takeUntil(this.destroyvalue$)).subscribe(submitData=>{
       
       localStorage.setItem('login','true')
       localStorage.setItem('email',data.email)
@@ -52,6 +39,11 @@ export class LoginpageComponent implements OnInit{
     })
       
      
+  }
+  ngOnDestroy(): void {
+    this.destroyvalue$.next (true)
+    this.destroyvalue$.complete()
+    
   }
 
 }

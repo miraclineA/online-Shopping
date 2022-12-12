@@ -9,12 +9,33 @@ import { StepperComponent } from './stepper/stepper.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
-  // {path:'',component:StepperComponent},Ss
-  {path:'',component:LoginpageComponent},
-   {path:'fun/:id',component:CardsComponent},
-  {path:'dashboard', component:ExampletableComponent},
-  {path:'goshopping', canActivate:[Myguard],component:ShoppingComponent},
-  {path:'wishlist', canActivate:[Myguard],component:WishlistComponent}
+
+  { path: '', component: LoginpageComponent },
+
+
+  { path: 'fun/:id', component: CardsComponent },
+
+
+  { path: 'dashboard', component: ExampletableComponent },
+
+
+
+  {
+    path: 'goshopping', canActivate: [Myguard], component: ShoppingComponent,
+
+    children: [
+      { path: 'orderList', canActivate: [Myguard], component: ShoppingComponent },
+      { path: 'grocery', canActivate: [Myguard], component: ShoppingComponent },
+      { path: 'electronics', canActivate: [Myguard], component: ShoppingComponent },
+      { path: 'homeappliance', canActivate: [Myguard], component: ShoppingComponent }
+    ]
+  },
+
+  { path: 'wishlist', canActivate: [Myguard], component: WishlistComponent },
+
+
+
+
 ];
 
 @NgModule({
