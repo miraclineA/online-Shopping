@@ -48,7 +48,7 @@
 <mat-nav-list >
 
 <a mat-list-item appHiglightdirective background="rgb(227, 157, 214)"   routerLink="/dashboard" (click)="snav.toggle()" > <mat-icon>store</mat-icon> Order</a>
-<!-- <a mat-list-item appHiglightdirective background="rgb(227, 157, 214)" routerLink="/goshopping" (click)="snav.toggle()" >Go To Shopping</a>  -->
+
 
 <mat-accordion>
   <mat-expansion-panel hideToggle>
@@ -58,7 +58,7 @@
       </mat-panel-title>
      
     </mat-expansion-panel-header>
-    <p><a mat-list-item appHiglightdirective background="rgb(227, 157, 214)"  (click)="snav.toggle()" > Clothing </a> </p>
+    <p><a mat-list-item appHiglightdirective background="rgb(227, 157, 214)" routerLink="/goshopping/orderList" (click)="snav.toggle()" > Clothing </a> </p>
     <p><a mat-list-item appHiglightdirective background="rgb(227, 157, 214)"  (click)="snav.toggle()" >Grocery</a> </p>
     <p><a mat-list-item appHiglightdirective background="rgb(227, 157, 214)"  (click)="snav.toggle()" >Electronics</a> </p>
     <p><a mat-list-item appHiglightdirective background="rgb(227, 157, 214)"  (click)="snav.toggle()" >Home Appliance</a> </p>

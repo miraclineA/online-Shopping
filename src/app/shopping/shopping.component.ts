@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { orderDetails } from '../model';
 import { ServiceExampleService } from '../service-example.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ServiceExampleService } from '../service-example.service';
 })
 export class ShoppingComponent implements OnInit{
 
-  cards:any
+  cards:orderDetails[]=[]
   
  
 

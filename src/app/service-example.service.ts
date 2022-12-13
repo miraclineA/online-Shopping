@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { filter } from 'rxjs'
+import { onlineShopping } from './model';
 const cores = require('cors')
 
 @Injectable({
@@ -23,10 +24,10 @@ export class ServiceExampleService {
 
   countryData: any;
 
-  private dataSubject$: Subject<Object>=new Subject();
+  private dataSubject$: Subject<onlineShopping[]>=new Subject();
   dataEvent$ = this.dataSubject$.asObservable();
 
-  data:any
+  data:onlineShopping[]=[]
   
   
   
@@ -44,7 +45,7 @@ export class ServiceExampleService {
 
 
   getcreateOrder(){
-     this.http.get(this.API_URL).subscribe(val=>{
+     this.http.get(this.API_URL).subscribe((val:any)=>{
       console.log('----val',val)
       this.dataSubject$.next(val)
       
