@@ -1,18 +1,21 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ServiceExampleService } from '../service-example.service';
 import{MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog'
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-reactiveform',
   templateUrl: './reactiveform.component.html',
   styleUrls: ['./reactiveform.component.scss']
 })
-export class ReactiveformComponent implements OnInit {
+export class ReactiveformComponent implements OnInit,OnDestroy {
 
   formdata:any;
+  destroyvalue$ = new Subject <boolean>
   constructor(public dialog:MatDialog, private serv:ServiceExampleService, private popup: MatSnackBar, @Inject(MAT_DIALOG_DATA) public data:any ){}
+
   ngOnInit(): void {
     console.log(this.data)
     this.formdata=new FormGroup({
@@ -28,7 +31,7 @@ export class ReactiveformComponent implements OnInit {
 
     
     
-    this.serv.createOrder({...data,id:data['no']}).subscribe(s=>{
+    this.serv.createOrder({...data,id:data['no']}).pipe(takeUntil(this.destroyvalue$)).subscribe(s=>{
       
       window.location.reload();
       
@@ -39,7 +42,7 @@ export class ReactiveformComponent implements OnInit {
   }
 
   editButton(elements:any){
-    this.serv.editcreateOrder(elements).subscribe(ele=>{
+    this.serv.editcreateOrder(elements).pipe(takeUntil(this.destroyvalue$)).subscribe(ele=>{
       
       window.location.reload();
       
@@ -55,6 +58,12 @@ export class ReactiveformComponent implements OnInit {
 
     snackbar1(){
       this.popup.open('update sucessfully','Thank You')
+    }
+
+    ngOnDestroy(): void {
+      this.destroyvalue$.next (true)
+      this.destroyvalue$.complete()
+      
     }
 
 }

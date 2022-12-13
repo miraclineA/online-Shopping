@@ -31,6 +31,7 @@ import { ShoppingComponent } from './shopping/shopping.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import {MatListModule} from '@angular/material/list';
 import { HiglightdirectiveDirective } from './higlightdirective.directive';
+import {MatExpansionModule} from '@angular/material/expansion';
  
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { HiglightdirectiveDirective } from './higlightdirective.directive';
     MatPaginatorModule,
     MatSelectModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule
     
 
 

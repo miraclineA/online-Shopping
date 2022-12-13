@@ -14,9 +14,13 @@ const cores = require('cors')
 
 export class ServiceExampleService {
   [x: string]: any;
-  // [x: string]: any;
+  
   API_URL=' http://localhost:3000/onlineShopping'
   APPLICATION_URL='http://localhost:3000/orderList'
+  grocery_URL='http://localhost:3000/grocery'
+  electronics_URL=' http://localhost:3000/electronics'
+  homeAppliance_URL='http://localhost:3000/homeappliance'
+
   countryData: any;
 
   private dataSubject$: Subject<Object>=new Subject();
@@ -33,9 +37,7 @@ export class ServiceExampleService {
     ) {}
 
     
-  // getUsers(){
-  //   return this.http.get('https://reqres.in/api/users?page=2')
-  // }
+ 
 
 
 
@@ -79,9 +81,18 @@ export class ServiceExampleService {
     return this.http.get(`${this.API_URL}/${id}`)
 
   }
-  orderDetails(){
+  getorderDetails(){
     return this.http.get(this.APPLICATION_URL)
 
+  }
+  getgroceryItem(){
+    return this.http.get(this.grocery_URL)
+  }
+  getelectronicsItem(){
+    return this.http.get(this.electronics_URL)
+  }
+  gethomeAppliance(){
+    return this.http.get(this.homeAppliance_URL)
   }
 
   updateFav(data:any){
@@ -101,12 +112,6 @@ export class ServiceExampleService {
     )
   }
 
-  // private countryData = countrycitystatejson;
-
-
-  // getCountries() {
-  //   return this.countryData.getCountries(); 
-  // }
 
 
 }
