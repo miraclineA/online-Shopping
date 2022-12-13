@@ -46,7 +46,7 @@ export class ServiceExampleService {
 
   getcreateOrder(){
      this.http.get(this.API_URL).subscribe((val:any)=>{
-      console.log('----val',val)
+  
       this.dataSubject$.next(val)
       
      this.data=val
