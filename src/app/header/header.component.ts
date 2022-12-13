@@ -52,7 +52,7 @@ searchBar(val:any){
   this.serv.searchItem(val)
 }
 
-addbutton:any
+addbutton=true
 
 ngOnDestroy(): void {
   this.destroyvalue$.next (true)
