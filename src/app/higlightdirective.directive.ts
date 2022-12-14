@@ -8,8 +8,6 @@ export class HiglightdirectiveDirective {
   @Input('color') color:any
   @Input('background') background:any
   @Input('font-weight') fontweight:any
-  
-
 
   constructor(private element:ElementRef) {}
   
@@ -20,6 +18,7 @@ export class HiglightdirectiveDirective {
   }
 
   @HostListener('mouseleave') onmouseleave(){
+    
     this.element.nativeElement.style.color =''
     this.element.nativeElement.style['font-weight'] = ''
     this.element.nativeElement.style.background =''

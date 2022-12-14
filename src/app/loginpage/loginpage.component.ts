@@ -28,9 +28,10 @@ export class LoginpageComponent implements OnInit, OnDestroy {
   }
 
   submit(data:any){
+
    
     this.serv.logIn(data).pipe(takeUntil(this.destroyvalue$)).subscribe(submitData=>{
-      
+
       localStorage.setItem('login','true')
       localStorage.setItem('email',data.email)
       

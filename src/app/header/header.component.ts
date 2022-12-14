@@ -52,6 +52,8 @@ searchBar(val:any){
   this.serv.searchItem(val)
 }
 
+addbutton:any
+
 ngOnDestroy(): void {
   this.destroyvalue$.next (true)
   this.destroyvalue$.complete()

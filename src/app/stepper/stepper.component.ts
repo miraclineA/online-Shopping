@@ -37,29 +37,33 @@ export class StepperComponent implements OnInit , OnDestroy {
   Country: any;
   dialog: any;
 
+
   destroyvalue$ = new Subject <boolean>
+
   
+
+
   constructor(private service: ServiceExampleService, private _formBuilder: FormBuilder, dialog:MatDialog) {
-   
+ 
   }
  
   
-  
+
   countries:any
   form1(){
-    this.firstFormGroup.value;
+    this.firstFormGroup.value
   }
 
   form2(){
-    this.secondFormGroup.value;
+    this.secondFormGroup.value
   }
   form3(){
-    this.thirdFormGroup.value;
+    this.thirdFormGroup.value
   }
 
   form4(){
-    this.fourthFormGroup.value;
-    this.service.createOrder({...this.firstFormGroup.value,...this.secondFormGroup.value,...this.fourthFormGroup.value,id:this.firstFormGroup.value['no']}).subscribe(a=>{
+    console.log(this.fourthFormGroup.value);
+    this.service.createOrder({...this.firstFormGroup.value,...this.secondFormGroup.value,...this.fourthFormGroup.value,id:this.firstFormGroup.value['no']}).subscribe(formGroup=>{
 
     })
     this.dialog.closeAll()
@@ -73,9 +77,11 @@ export class StepperComponent implements OnInit , OnDestroy {
       Country:this.country,
       State:this.state
     })
+
     this.country.valueChanges.pipe(takeUntil(this.destroyvalue$)).subscribe((countriesInWorld:any)=>{
       this.states=State.getStatesOfCountry(countriesInWorld.isoCode)
      
+
 
     })
 

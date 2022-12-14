@@ -31,7 +31,7 @@ export class ReactiveformComponent implements OnInit,OnDestroy {
 
     
     
-    this.serv.createOrder({...data,id:data['no']}).pipe(takeUntil(this.destroyvalue$)).subscribe(s=>{
+    this.serv.createOrder({...data,id:data['no']}).pipe(takeUntil(this.destroyvalue$)).subscribe(addToCart=>{
       
       window.location.reload();
       
@@ -42,7 +42,7 @@ export class ReactiveformComponent implements OnInit,OnDestroy {
   }
 
   editButton(elements:any){
-    this.serv.editcreateOrder(elements).pipe(takeUntil(this.destroyvalue$)).subscribe(ele=>{
+    this.serv.editcreateOrder(elements).pipe(takeUntil(this.destroyvalue$)).subscribe(editting=>{
       
       window.location.reload();
       

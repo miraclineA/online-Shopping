@@ -2,7 +2,7 @@
 
 
 <div class="row row-cols-1  row row-cols-md-3 " >
-    <div class="col-mb-4" *ngFor="let card of cards">
+    <div class="col-mb-4" *ngFor="let card of cards|async">
 
         <mat-card class="example-card">
             <mat-card-header>
