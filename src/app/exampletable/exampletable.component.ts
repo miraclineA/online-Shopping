@@ -8,6 +8,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
+import { onlineShopping } from '../model';
 
 
 @Component({
@@ -17,7 +18,7 @@ import {MatPaginator} from '@angular/material/paginator';
 })
 export class ExampletableComponent implements OnInit, OnDestroy{
   [x: string]: any;
-  dataSource: Observable<any> = of([{}]);
+  dataSource: Observable<onlineShopping[]> = of([]);
   
   displayedColumns: string[] = ['no', 'name', 'cost', 'shippingAddress', 'expectedDate', 'star','fav'];
 
@@ -68,13 +69,7 @@ ngOnDestroy(): void {
 }
 
 }
-export interface onlineShopping {
-  no: number,
-  name: string;
-  cost: number;
-  shippingAddress: string;
-  expectedDate: string;
-}
+
 
 
 
