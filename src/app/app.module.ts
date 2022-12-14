@@ -30,8 +30,9 @@ import{MatDividerModule} from '@angular/material/divider';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import {MatListModule} from '@angular/material/list';
-import { HiglightdirectiveDirective } from './higlightdirective.directive';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { HiglightdirectiveDirective } from './higlightdirective.directive';
+import { StoreModule } from '@ngrx/store';
  
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSelectModule,
     MatDividerModule,
     MatListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    StoreModule.forRoot({}, {})
     
 
 

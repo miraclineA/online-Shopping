@@ -26,8 +26,8 @@ export class CardsComponent implements OnInit, OnDestroy{
     
     
      
-      this.serv.getDetails( this.route.snapshot.params['id']).pipe(takeUntil(this.destroyvalue$)).subscribe(detail=>{
-      this.merging = detail
+      this.serv.getDetails( this.route.snapshot.params['id']).pipe(takeUntil(this.destroyvalue$)).subscribe(details=>{
+      this.merging = details
     })
 
 
@@ -47,7 +47,7 @@ export class CardsComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.destroyvalue$.next (true)
-    this.destroyvalue$.complete()
+  this.destroyvalue$.complete()
   }
 
 } 
